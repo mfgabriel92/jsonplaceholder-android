@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">JSON Placeholder</string>
+    <string name="user_photo_content_description">User\'s profile image</string>
 </resources>
