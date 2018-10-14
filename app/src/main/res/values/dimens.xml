@@ -5,6 +5,7 @@
 
     <dimen name="users_photo_size">48dp</dimen>
     <dimen name="users_list_height">64dp</dimen>
+    <dimen name="users_list_initial_text_size">32sp</dimen>
 
     <dimen name="progress_bar_size">32dp</dimen>
     <dimen name="progress_bar_top_margin">28dp</dimen>

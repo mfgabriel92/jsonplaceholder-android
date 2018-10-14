@@ -29,7 +29,7 @@ class MainFragment : Fragment() {
 
         binding.rvMainActivity.adapter = adapter
 
-        populateUi()
+        loadData()
 
         return binding.root
     }
@@ -39,7 +39,7 @@ class MainFragment : Fragment() {
         AndroidSupportInjection.inject(this)
     }
 
-    private fun populateUi() {
+    private fun loadData() {
         viewModel = ViewModelProviders.of(this, viewModelFactory).get(MainViewModel::class.java)
         viewModel.fetchAllUsers()
         viewModel.loading().observe(this, Observer<Boolean> {

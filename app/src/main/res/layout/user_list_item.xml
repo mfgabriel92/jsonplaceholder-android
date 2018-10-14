@@ -13,14 +13,26 @@
         android:layout_height="@dimen/users_list_height">
 
         <TextView
+            android:id="@+id/tv_user_initials"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="@dimen/users_list_initial_text_size"
+            tools:text="JD"
+            app:initials="@{user.name}"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"/>
+
+        <TextView
             android:id="@+id/tv_user_name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textSize="16sp"
             android:text="@{user.name}"
+            android:layout_marginStart="8dp"
             tools:text="John Doe"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"/>
+            app:layout_constraintStart_toEndOf="@+id/tv_user_initials"
+            app:layout_constraintTop_toTopOf="@+id/tv_user_initials"/>
 
         <TextView
             android:id="@+id/tv_user_username"
@@ -31,7 +43,8 @@
             android:text="@{user.username}"
             tools:text="johndoe"
             app:layout_constraintTop_toBottomOf="@+id/tv_user_name"
-            app:layout_constraintStart_toStartOf="parent"/>
+            app:layout_constraintStart_toStartOf="@+id/tv_user_name"
+            app:layout_constraintBottom_toBottomOf="@+id/tv_user_initials"/>
 
         <TextView
             android:id="@+id/tv_user_email"

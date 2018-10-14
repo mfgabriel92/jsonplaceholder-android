@@ -22,8 +22,8 @@ class MainViewModel @Inject constructor(private val repository: UserRepository) 
             override fun onComplete() {
             }
 
-            override fun onNext(critpcurrencies: List<User>) {
-                result.postValue(critpcurrencies)
+            override fun onNext(users: List<User>) {
+                result.postValue(users)
                 loading.postValue(false)
             }
 
