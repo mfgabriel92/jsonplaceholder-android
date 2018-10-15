@@ -5,28 +5,28 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
-import com.example.gabriel.jsonplaceholder.data.local.entity.user.User
-import com.example.gabriel.jsonplaceholder.data.local.entity.user.UserDiffCallback
-import com.example.gabriel.jsonplaceholder.databinding.UserListItemBinding
+import com.example.gabriel.jsonplaceholder.data.local.entity.post.Post
+import com.example.gabriel.jsonplaceholder.data.local.entity.post.PostDiffCallback
+import com.example.gabriel.jsonplaceholder.databinding.PostListItemBinding
 
-class MainAdapter(val context: Context) : ListAdapter<User, MainAdapter.ViewHolder>(UserDiffCallback()) {
+class MainAdapter(val context: Context) : ListAdapter<Post, MainAdapter.ViewHolder>(PostDiffCallback()) {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-        return ViewHolder(UserListItemBinding.inflate(LayoutInflater.from(parent.context), parent, false))
+        return ViewHolder(PostListItemBinding.inflate(LayoutInflater.from(parent.context), parent, false))
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        val user = getItem(position)
+        val post = getItem(position)
 
         holder.apply {
-            bind(user)
-            itemView.tag = user
+            bind(post)
+            itemView.tag = post
         }
     }
 
-    inner class ViewHolder(private val binding: UserListItemBinding) : RecyclerView.ViewHolder(binding.root) {
-        fun bind(u: User) {
+    inner class ViewHolder(private val binding: PostListItemBinding) : RecyclerView.ViewHolder(binding.root) {
+        fun bind(p: Post) {
             binding.apply {
-                user = u
+                post = p
                 executePendingBindings()
             }
         }

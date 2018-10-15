@@ -2,7 +2,8 @@ package com.example.gabriel.jsonplaceholder.di.module
 
 import android.app.Application
 import androidx.room.Room
-import com.example.gabriel.jsonplaceholder.data.local.JsonPlaceholderDatabase
+import com.example.gabriel.jsonplaceholder.data.local.db.JsonPlaceholderDatabase
+import com.example.gabriel.jsonplaceholder.data.local.db.migrations.Migration1To2
 import dagger.Module
 import dagger.Provides
 import javax.inject.Singleton
@@ -19,5 +20,5 @@ class AppModule(val app: Application) {
         app,
         JsonPlaceholderDatabase::class.java,
         "jsonplaceholder"
-    ).build()
+    ).addMigrations(Migration1To2()).build()
 }

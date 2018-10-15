@@ -1,4 +1,4 @@
-package com.example.gabriel.jsonplaceholder.data
+package com.example.gabriel.jsonplaceholder.data.repository
 
 import com.example.gabriel.jsonplaceholder.data.local.UserDao
 import com.example.gabriel.jsonplaceholder.data.local.entity.user.User

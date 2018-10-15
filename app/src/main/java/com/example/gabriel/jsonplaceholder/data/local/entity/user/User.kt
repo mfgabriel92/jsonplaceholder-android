@@ -1,13 +1,17 @@
 package com.example.gabriel.jsonplaceholder.data.local.entity.user
 
+import androidx.room.ColumnInfo
 import androidx.room.Embedded
 import androidx.room.Entity
 import androidx.room.PrimaryKey
+import com.google.gson.annotations.SerializedName
 
 @Entity(tableName = "users")
 data class User(
     @PrimaryKey(autoGenerate = true)
-    val id: Int,
+    @SerializedName("id")
+    @ColumnInfo(name = "id")
+    val uid: Int,
 
     val name: String,
 

@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable name="post" type="com.example.gabriel.jsonplaceholder.data.local.entity.post.Post"/>
+    </data>
+
+    <com.google.android.material.card.MaterialCardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="16dp">
+
+            <TextView
+                android:id="@+id/tv_user_initials"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/users_list_initial_text_size"
+                tools:text="JD"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"/>
+
+            <TextView
+                android:id="@+id/tv_user_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="16sp"
+                android:layout_marginStart="12dp"
+                tools:text="John Doe"
+                app:layout_constraintStart_toEndOf="@+id/tv_user_initials"
+                app:layout_constraintTop_toTopOf="@+id/tv_user_initials"/>
+
+            <TextView
+                android:id="@+id/tv_user_username"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="12sp"
+                android:layout_marginTop="4dp"
+                tools:text="johndoe"
+                app:layout_constraintTop_toBottomOf="@+id/tv_user_name"
+                app:layout_constraintStart_toStartOf="@+id/tv_user_name"
+                app:layout_constraintBottom_toBottomOf="@+id/tv_user_initials"/>
+
+            <TextView
+                android:id="@+id/tv_post_title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/post_title_margin_top"
+                android:textSize="@dimen/post_title_font_size"
+                android:maxLines="1"
+                android:textStyle="bold"
+                android:text="@{post.title}"
+                tools:text="Lorem ipsum dolor sit amet"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tv_user_username"
+                app:layout_constraintEnd_toEndOf="parent"/>
+
+            <TextView
+                android:id="@+id/tv_post_body"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/post_body_margin_top"
+                android:textSize="@dimen/post_body_font_size"
+                android:maxLines="5"
+                android:textStyle="italic"
+                android:text="@{post.body}"
+                tools:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec malesuada tincidunt mauris, vel consectetur leo rhoncus eu. Morbi pulvinar, risus et aliquet pharetra, mi libero tristique nunc, sed dapibus tortor justo eget tortor. Maecenas posuere aliquet leo, eu convallis augue luctus sodales."
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tv_post_title"
+                app:layout_constraintEnd_toEndOf="parent"/>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </com.google.android.material.card.MaterialCardView>
+</layout>

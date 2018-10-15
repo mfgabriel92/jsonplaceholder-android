@@ -17,7 +17,7 @@
             android:padding="@dimen/default_content_padding"
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
             tools:context=".ui.main.MainActivity"
-            tools:listitem="@layout/user_list_item" />
+            tools:listitem="@layout/post_list_item" />
 
         <ProgressBar
             android:id="@+id/pb_loading_users"
