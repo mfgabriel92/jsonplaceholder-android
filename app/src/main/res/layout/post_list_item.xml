@@ -5,7 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
-        <variable name="post" type="com.example.gabriel.jsonplaceholder.data.local.entity.post.Post"/>
+        <variable name="post" type="com.example.gabriel.jsonplaceholder.data.local.entity.post.PostWithUser"/>
     </data>
 
     <com.google.android.material.card.MaterialCardView
@@ -24,6 +24,7 @@
                 android:layout_height="wrap_content"
                 android:textSize="@dimen/users_list_initial_text_size"
                 tools:text="JD"
+                app:initials="@{post.name}"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"/>
 
@@ -33,6 +34,7 @@
                 android:layout_height="wrap_content"
                 android:textSize="16sp"
                 android:layout_marginStart="12dp"
+                android:text="@{post.name}"
                 tools:text="John Doe"
                 app:layout_constraintStart_toEndOf="@+id/tv_user_initials"
                 app:layout_constraintTop_toTopOf="@+id/tv_user_initials"/>
@@ -43,6 +45,7 @@
                 android:layout_height="wrap_content"
                 android:textSize="12sp"
                 android:layout_marginTop="4dp"
+                android:text="@{post.username}"
                 tools:text="johndoe"
                 app:layout_constraintTop_toBottomOf="@+id/tv_user_name"
                 app:layout_constraintStart_toStartOf="@+id/tv_user_name"

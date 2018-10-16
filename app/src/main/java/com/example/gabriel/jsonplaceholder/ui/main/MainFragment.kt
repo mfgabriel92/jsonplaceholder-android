@@ -2,7 +2,6 @@ package com.example.gabriel.jsonplaceholder.ui.main
 
 import android.content.Context
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -10,7 +9,7 @@ import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
-import com.example.gabriel.jsonplaceholder.data.local.entity.post.Post
+import com.example.gabriel.jsonplaceholder.data.local.entity.post.PostWithUser
 import com.example.gabriel.jsonplaceholder.databinding.FragmentMainBinding
 import com.example.gabriel.jsonplaceholder.ui.main.viewmodel.MainViewModel
 import com.example.gabriel.jsonplaceholder.ui.main.viewmodel.MainViewModelFactory
@@ -26,7 +25,7 @@ class MainFragment : Fragment() {
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         binding = FragmentMainBinding.inflate(inflater, container, false)
-        adapter = MainAdapter(binding.root.context)
+        adapter = MainAdapter()
 
         binding.rvMainActivity.adapter = adapter
 
@@ -42,21 +41,20 @@ class MainFragment : Fragment() {
 
     private fun loadData() {
         viewModel = ViewModelProviders.of(this, viewModelFactory).get(MainViewModel::class.java)
-        viewModel.fetchAllPosts()
+        viewModel.fetchAllPostsAndUsers()
         viewModel.loading().observe(this, Observer<Boolean> {
             if (it == false) {
                 pb_loading_users.visibility = View.GONE
             }
         })
 
-        viewModel.result().observe(this, Observer<List<Post>> {
+        viewModel.result().observe(this, Observer<List<PostWithUser>> {
             if (it != null) {
                 adapter.submitList(it)
             }
         })
 
         viewModel.error().observe(this, Observer<String> {
-            Log.d("MainFragment::error()", it)
             if (it != null) {
                 Toast.makeText(binding.root.context, it, Toast.LENGTH_LONG).show()
             }

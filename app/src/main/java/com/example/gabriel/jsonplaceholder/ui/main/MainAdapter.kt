@@ -1,15 +1,14 @@
 package com.example.gabriel.jsonplaceholder.ui.main
 
-import android.content.Context
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
-import com.example.gabriel.jsonplaceholder.data.local.entity.post.Post
 import com.example.gabriel.jsonplaceholder.data.local.entity.post.PostDiffCallback
+import com.example.gabriel.jsonplaceholder.data.local.entity.post.PostWithUser
 import com.example.gabriel.jsonplaceholder.databinding.PostListItemBinding
 
-class MainAdapter(val context: Context) : ListAdapter<Post, MainAdapter.ViewHolder>(PostDiffCallback()) {
+class MainAdapter : ListAdapter<PostWithUser, MainAdapter.ViewHolder>(PostDiffCallback()) {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         return ViewHolder(PostListItemBinding.inflate(LayoutInflater.from(parent.context), parent, false))
     }
@@ -24,7 +23,7 @@ class MainAdapter(val context: Context) : ListAdapter<Post, MainAdapter.ViewHold
     }
 
     inner class ViewHolder(private val binding: PostListItemBinding) : RecyclerView.ViewHolder(binding.root) {
-        fun bind(p: Post) {
+        fun bind(p: PostWithUser) {
             binding.apply {
                 post = p
                 executePendingBindings()
