@@ -3,7 +3,7 @@
     <dimen name="default_content_padding">8dp</dimen>
     <dimen name="default_content_margin">8dp</dimen>
 
-    <dimen name="post_title_margin_top">40dp</dimen>
+    <dimen name="post_title_margin_top">32dp</dimen>
     <dimen name="post_title_font_size">22sp</dimen>
     <dimen name="post_body_margin_top">8dp</dimen>
     <dimen name="post_body_font_size">16sp</dimen>
